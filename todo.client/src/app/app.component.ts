@@ -33,5 +33,5 @@ export class AppComponent implements OnInit {
     );
   }
 
-  title = 'todo.client';
+  title = 'ToDo.Client';
 }

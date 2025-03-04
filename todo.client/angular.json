@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "todo.client": {
+    "ToDo.Client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/todo.client",
+            "outputPath": "dist/ToDo.Client",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "todo.client:build:production"
+              "buildTarget": "ToDo.Client:build:production"
             },
             "development": {
-              "buildTarget": "todo.client:build:development"
+              "buildTarget": "ToDo.Client:build:development"
             }
           },
           "defaultConfiguration": "development",
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "todo.client:build"
+            "buildTarget": "ToDo.Client:build"
           }
         },
         "test": {
