@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ToDo.Client", "ToDo.Client\ToDo.Client.esproj", "{9B5BBB73-3067-4CAA-6AA8-0463D382771A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Server", "ToDo.Server\ToDo.Server.csproj", "{129A51BD-8BBC-40EE-BAC9-1E311A5A0EC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.DataAccess", "ToDo.DataAccess\ToDo.DataAccess.csproj", "{5C16C457-95F9-419B-9C5B-69A95C481D3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Shared", "ToDo.Shared\ToDo.Shared.csproj", "{9EF65855-9265-4AA0-BFED-2BFAC693C63A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,14 @@ Global
 		{129A51BD-8BBC-40EE-BAC9-1E311A5A0EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{129A51BD-8BBC-40EE-BAC9-1E311A5A0EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{129A51BD-8BBC-40EE-BAC9-1E311A5A0EC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C16C457-95F9-419B-9C5B-69A95C481D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C16C457-95F9-419B-9C5B-69A95C481D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C16C457-95F9-419B-9C5B-69A95C481D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C16C457-95F9-419B-9C5B-69A95C481D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EF65855-9265-4AA0-BFED-2BFAC693C63A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF65855-9265-4AA0-BFED-2BFAC693C63A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF65855-9265-4AA0-BFED-2BFAC693C63A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF65855-9265-4AA0-BFED-2BFAC693C63A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
