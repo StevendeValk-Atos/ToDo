@@ -8,7 +8,7 @@ using ToDo.Shared.Interfaces;
 
 namespace ToDo.Service
 {
-    class WorkItemService
+    public class WorkItemService
     {
         private readonly IRepository<WorkItem> _repository;
         
