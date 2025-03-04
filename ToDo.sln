@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.DataAccess", "ToDo.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Shared", "ToDo.Shared\ToDo.Shared.csproj", "{9EF65855-9265-4AA0-BFED-2BFAC693C63A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Service", "ToDo.Service\ToDo.Service.csproj", "{919CD88D-F542-4C51-AFAF-A9FAF2602004}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{9EF65855-9265-4AA0-BFED-2BFAC693C63A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EF65855-9265-4AA0-BFED-2BFAC693C63A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EF65855-9265-4AA0-BFED-2BFAC693C63A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{919CD88D-F542-4C51-AFAF-A9FAF2602004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919CD88D-F542-4C51-AFAF-A9FAF2602004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919CD88D-F542-4C51-AFAF-A9FAF2602004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919CD88D-F542-4C51-AFAF-A9FAF2602004}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
