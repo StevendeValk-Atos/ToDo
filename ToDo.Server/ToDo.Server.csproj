@@ -13,6 +13,10 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>8.*-*</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
@@ -21,6 +25,7 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\ToDo.DataAccess\ToDo.DataAccess.csproj" />
+    <ProjectReference Include="..\ToDo.Service\ToDo.Service.csproj" />
     <ProjectReference Include="..\ToDo.Shared\ToDo.Shared.csproj" />
   </ItemGroup>
 

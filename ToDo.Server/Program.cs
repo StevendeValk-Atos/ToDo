@@ -1,4 +1,10 @@
 
+using Microsoft.EntityFrameworkCore;
+using ToDo.DataAccess;
+using ToDo.Service;
+using ToDo.Shared.Entities;
+using ToDo.Shared.Interfaces;
+
 namespace ToDo.Server
 {
     public class Program
@@ -8,6 +14,20 @@ namespace ToDo.Server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<ToDoContext>(options =>
+            {
+                string connString = builder.Configuration.GetConnectionString("default")!;
+                options.UseSqlServer(
+                    connString,
+                    b => b.MigrationsAssembly("ToDo.DataAccess")
+                );
+            });
+
+            builder.Services.AddScoped<Func<ToDoContext>>((provider) => () => provider.GetService<ToDoContext>());
+            builder.Services.AddScoped<DbFactory>();
+            builder.Services.AddScoped<IRepository<WorkItem>, Repository<WorkItem>>();
+            builder.Services.AddScoped<WorkItemService>();
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
