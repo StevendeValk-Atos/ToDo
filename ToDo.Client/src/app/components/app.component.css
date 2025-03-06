@@ -36,3 +36,18 @@ button:active {
     padding: 1em;
     font-size: 1.5em;
 }
+
+/*.workitems-list {
+    margin-top: 1em;
+}
+*/
+
+.workitem-display:first-child {
+    margin-top: 1em;
+}
+.workitem-display {
+  background-color: white;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  font-family: Arial, Helvetica, sans-serif;
+}

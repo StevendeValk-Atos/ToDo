@@ -1,7 +1,11 @@
 <div class="center-col">
-  <div class="container row">
-    <input />
-    <button id="add-workitem-button">Add</button>
+  <div class="container">
+    <div class="row">
+      <input />
+      <button id="add-workitem-button">Add</button>
+    </div>
+    <div class="workitem-display" *ngFor="let workItem of workItems">
+      {{ workItem.description }}
+    </div>
   </div>
-  <div *ngFor="let workItem of workItems">{{ workItem.description }}</div>
 </div>
