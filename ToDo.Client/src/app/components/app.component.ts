@@ -1,12 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
+import { WorkItem } from "../../models/WorkItem";
 
 @Component({
   selector: 'app-root',
@@ -14,24 +8,17 @@ interface WeatherForecast {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public forecasts: WeatherForecast[] = [];
-
-  constructor(private http: HttpClient) {}
+  public workItems: WorkItem[] = [];
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.getForecasts();
+    this.getWorkItems();
   }
 
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+  getWorkItems() {
+    this.http.get<WorkItem[]>("/workitem").subscribe(
+      (result) => { this.workItems = result; console.log(this.workItems) }
+    )
   }
 
-  title = 'ToDo.Client';
 }
