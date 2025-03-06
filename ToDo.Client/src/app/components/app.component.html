@@ -5,14 +5,9 @@
       <button id="add-workitem-button">Add</button>
     </div>
     <div id="workitem-list">
-      <div class="workitem-display" *ngFor="let workItem of workItems">
-        <div class="row space-between">
-          {{ workItem.description }}
-          <div class="row">
-            form
-          </div>
-        </div>
-      </div>
+      <app-work-item-display
+        *ngFor="let workItem of workItems"
+        [workItem]="workItem"/>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { WorkItem } from '../../../models/WorkItem';
 
 @Component({
   selector: 'app-work-item-display',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './work-item-display.component.css'
 })
 export class WorkItemDisplayComponent {
-
+  workItem = input<WorkItem>();
 }
