@@ -15,7 +15,7 @@ input {
     padding: 0.25em;
 }
 
-#add-workitem-button {
+button {
   background-color: #24bfff;
   color: white;
   margin-left: 0.5em;
