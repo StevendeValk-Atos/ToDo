@@ -6,7 +6,12 @@
     </div>
     <div id="workitem-list">
       <div class="workitem-display" *ngFor="let workItem of workItems">
-        {{ workItem.description }}
+        <div class="row space-between">
+          {{ workItem.description }}
+          <div class="row">
+            form
+          </div>
+        </div>
       </div>
     </div>
   </div>
