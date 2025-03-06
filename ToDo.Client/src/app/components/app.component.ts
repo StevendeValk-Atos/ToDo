@@ -4,11 +4,9 @@ import { WorkItem } from "../../models/WorkItem";
 import { WorkItemDisplayComponent } from "../components/work-item-display/work-item-display.component"
 
 @Component({
-  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [ WorkItemDisplayComponent ]
 })
 export class AppComponent implements OnInit {
   public workItems: WorkItem[] = [];
@@ -20,8 +18,12 @@ export class AppComponent implements OnInit {
 
   getWorkItems() {
     this.http.get<WorkItem[]>("/workitem").subscribe(
-      (result) => { this.workItems = result; console.log(this.workItems) }
+      (result) => { this.workItems = result; }
     )
+  }
+
+  addWorkItem() {
+    console.log("add new work item");
   }
 
 }
