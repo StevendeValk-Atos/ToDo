@@ -4,8 +4,10 @@
       <input />
       <button id="add-workitem-button">Add</button>
     </div>
-    <div class="workitem-display" *ngFor="let workItem of workItems">
-      {{ workItem.description }}
+    <div id="workitem-list">
+      <div class="workitem-display" *ngFor="let workItem of workItems">
+        {{ workItem.description }}
+      </div>
     </div>
   </div>
 </div>

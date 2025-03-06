@@ -37,14 +37,10 @@ button:active {
     font-size: 1.5em;
 }
 
-/*.workitems-list {
+#workitem-list {
     margin-top: 1em;
 }
-*/
 
-.workitem-display:first-child {
-    margin-top: 1em;
-}
 .workitem-display {
   background-color: white;
   margin: 0.5em 0;
