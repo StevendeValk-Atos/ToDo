@@ -19,5 +19,11 @@ namespace ToDo.Server.Controllers
         {
             return await WorkItemService.GetAllAsync();
         }
+
+        [HttpPost]
+        public async Task InsertAsync([FromBody] WorkItem workItem)
+        {
+            await WorkItemService.InsertAsync(workItem);
+        }
     }
 }
