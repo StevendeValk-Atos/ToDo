@@ -31,5 +31,11 @@ namespace ToDo.Server.Controllers
         {
             await WorkItemService.DeleteAsync(id);
         }
+
+        [HttpPut("{id}")]
+        public void UpdateAsync(int id)
+        {
+            Console.WriteLine(id);
+        }
     }
 }
