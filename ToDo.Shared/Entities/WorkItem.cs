@@ -10,6 +10,6 @@ namespace ToDo.Shared.Entities
     public class WorkItem : EntityBase<int>
     {
         public string Description { get; set; }
-        public bool IsDone { get; set; }
+        public bool IsDone { get; set; } = false;
     }
 }

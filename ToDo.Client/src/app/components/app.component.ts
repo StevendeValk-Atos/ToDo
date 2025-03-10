@@ -24,6 +24,12 @@ export class AppComponent implements OnInit {
   }
 
   addWorkItem() {
-    console.log(this.workItemDescription);
+    let workItem: WorkItem = {
+      id: 0,
+      description: this.workItemDescription,
+      isDone: false
+    };
+
+    this.http.post("/workitem", workItem).subscribe();
   }
 }
