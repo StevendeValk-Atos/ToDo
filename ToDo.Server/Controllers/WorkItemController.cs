@@ -25,5 +25,11 @@ namespace ToDo.Server.Controllers
         {
             await WorkItemService.InsertAsync(workItem);
         }
+
+        [HttpDelete("{id}")]
+        public void DeleteAsync(int id)
+        {
+            Console.WriteLine(id);
+        }
     }
 }
