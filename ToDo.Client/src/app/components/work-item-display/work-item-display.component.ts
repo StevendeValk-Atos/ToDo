@@ -8,4 +8,8 @@ import { WorkItem } from '../../../models/WorkItem';
 })
 export class WorkItemDisplayComponent {
   @Input() workItem!: WorkItem;
+
+  deleteWorkItem() {
+    console.log(this.workItem.id);
+  }
 }
