@@ -10,6 +10,7 @@ import { WorkItemDisplayComponent } from "../components/work-item-display/work-i
 })
 export class AppComponent implements OnInit {
   public workItems: WorkItem[] = [];
+  public workItemDescription: string = "";
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -23,7 +24,6 @@ export class AppComponent implements OnInit {
   }
 
   addWorkItem() {
-    console.log("add new work item");
+    console.log(this.workItemDescription);
   }
-
 }
