@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { WorkItem } from '../../../models/WorkItem';
+import { HttpClient } from "@angular/common/http"
 
 @Component({
   selector: 'app-work-item-display',
@@ -7,9 +8,11 @@ import { WorkItem } from '../../../models/WorkItem';
   styleUrl: './work-item-display.component.css'
 })
 export class WorkItemDisplayComponent {
+  constructor(private http: HttpClient) { }
+
   @Input() workItem!: WorkItem;
 
   deleteWorkItem() {
-    console.log(this.workItem.id);
+    this.http.delete("/workitem/" + this.workItem.id).subscribe();
   }
 }
