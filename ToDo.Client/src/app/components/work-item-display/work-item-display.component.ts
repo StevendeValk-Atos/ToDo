@@ -17,6 +17,7 @@ export class WorkItemDisplayComponent {
   }
 
   onCheckBoxInput() {
-    console.log(this.workItem.isDone);
+    this.http.put<WorkItem>("/workitem/" + this.workItem.id, this.workItem)
+    .subscribe();
   }
 }

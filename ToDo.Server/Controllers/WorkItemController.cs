@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using ToDo.Service;
 using ToDo.Shared.Entities;
 
@@ -33,9 +34,9 @@ namespace ToDo.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public void UpdateAsync(int id)
+        public void UpdateAsync(int id, [FromBody] WorkItem workItem)
         {
-            Console.WriteLine(id);
+            WorkItemService.Update(workItem);
         }
     }
 }
