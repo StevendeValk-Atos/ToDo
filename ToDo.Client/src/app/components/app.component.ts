@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { WorkItem } from "../../models/WorkItem";
 import { WorkItemDisplayComponent } from "../components/work-item-display/work-item-display.component"
+import { WorkItemService} from "../work-item.service"
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,14 @@ import { WorkItemDisplayComponent } from "../components/work-item-display/work-i
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  public workItemService = inject(WorkItemService)
+
   public workItems: WorkItem[] = [];
   public workItemDescription: string = "";
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.getWorkItems();
+    this.workItems = this.workItemService.workItems;
   }
 
   getWorkItems() {

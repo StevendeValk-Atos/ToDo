@@ -9,9 +9,11 @@ import { WorkItem } from "../models/WorkItem"
 export class WorkItemService {
   public workItems: WorkItem[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.getWorkItems();
+  }
 
-  public getWorkItems() {
+  private getWorkItems() {
     this.http.get<WorkItem[]>("/workitem").subscribe(
       (result) => { this.workItems = result });
   }
