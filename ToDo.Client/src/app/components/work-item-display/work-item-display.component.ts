@@ -15,4 +15,8 @@ export class WorkItemDisplayComponent {
   deleteWorkItem() {
     this.http.delete("/workitem/" + this.workItem.id).subscribe();
   }
+
+  onCheckBoxInput() {
+    console.log(this.workItem.isDone);
+  }
 }

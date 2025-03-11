@@ -2,7 +2,10 @@
   <div class="row space-between">
     {{ workItem.description }}
     <div class="row">
-      <input type="checkbox" />
+      <input type="checkbox"
+             [(ngModel)]="workItem.isDone"
+             (ngModelChange)="onCheckBoxInput()"
+            />
       <button (click)="deleteWorkItem()">Delete</button>
     </div>
   </div>
