@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core"
 import { HttpClient } from "@angular/common/http"
 
 import { WorkItem } from "../models/WorkItem"
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -9,6 +10,8 @@ import { WorkItem } from "../models/WorkItem"
 export class WorkItemService {
   public workItems: WorkItem[] = [];
 
+  private workItemsSubject : BehaviorSubject<WorkItem[]> = new BehaviorSubject<WorkItem[]>([]);
+  public workItems$ = this.workItemsSubject.asObservable();
   constructor(private http: HttpClient) {
     this.getWorkItems();
   }
