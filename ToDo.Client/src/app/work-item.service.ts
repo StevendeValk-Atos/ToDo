@@ -13,8 +13,19 @@ export class WorkItemService {
     this.getWorkItems();
   }
 
+  private _route: string = "/workitem";
+
   private getWorkItems() {
-    this.http.get<WorkItem[]>("/workitem").subscribe(
+    this.http.get<WorkItem[]>(this._route).subscribe(
       (result) => { this.workItems = result });
+  }
+
+  private deleteWorkItem(workItemId: number) {
+    this.http.delete(this._route + String(workItemId)).subscribe();
+    this.getWorkItems();
+  }
+
+  private updateWorkItem(workItem: WorkItem) {
+    this.http.put<WorkItem>(this._route + "/" + workItem.id, workItem).subscribe();
   }
 }
