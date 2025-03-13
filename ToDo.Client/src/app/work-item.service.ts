@@ -21,7 +21,7 @@ export class WorkItemService {
   }
 
   public deleteWorkItem(workItemId: number) {
-    this.http.delete(this._route + String(workItemId)).subscribe();
+    this.http.delete(this._route + "/" + workItemId).subscribe();
     this.getWorkItems();
   }
 
