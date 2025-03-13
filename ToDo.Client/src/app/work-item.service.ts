@@ -20,12 +20,12 @@ export class WorkItemService {
       (result) => { this.workItems = result });
   }
 
-  private deleteWorkItem(workItemId: number) {
+  public deleteWorkItem(workItemId: number) {
     this.http.delete(this._route + String(workItemId)).subscribe();
     this.getWorkItems();
   }
 
-  private updateWorkItem(workItem: WorkItem) {
+  public updateWorkItem(workItem: WorkItem) {
     this.http.put<WorkItem>(this._route + "/" + workItem.id, workItem).subscribe();
   }
 }

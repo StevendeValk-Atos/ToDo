@@ -4,9 +4,9 @@
     <div class="row">
       <input type="checkbox"
              [(ngModel)]="workItem.isDone"
-             (ngModelChange)="onCheckBoxInput()"
+             (ngModelChange)="workItemService.updateWorkItem(workItem)"
             />
-      <button (click)="deleteWorkItem()">Delete</button>
+      <button (click)="workItemService.deleteWorkItem(workItem.id)">Delete</button>
     </div>
   </div>
 </div>

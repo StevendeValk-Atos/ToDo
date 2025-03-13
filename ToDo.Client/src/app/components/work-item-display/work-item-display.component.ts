@@ -2,7 +2,7 @@ import { Component, inject, Input } from '@angular/core';
 import { WorkItem } from '../../../models/WorkItem';
 import { HttpClient } from "@angular/common/http";
 
-import { WorkItemService } from "../../work-item.service"
+import { WorkItemService } from "../../work-item.service";
 
 @Component({
   selector: 'app-work-item-display',
