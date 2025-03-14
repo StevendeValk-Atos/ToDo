@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.workItemService.workItemsSubject.subscribe((workItems) => {
+    this.workItemService.workItems$.subscribe((workItems) => {
       this.workItems = workItems;
       console.log(this.workItems);
     })

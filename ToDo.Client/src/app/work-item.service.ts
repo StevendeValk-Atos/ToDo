@@ -20,25 +20,23 @@ export class WorkItemService {
 
   private getWorkItems() {
     this.http.get<WorkItem[]>(this._route).subscribe(
-      (result) => { this.workItems = result });
+      (result) => { this.workItemsSubject.next(result); });
   }
 
   public deleteWorkItem(workItemIndex: number) {
-    this.workItemsSubject.subscribe((workItems: WorkItem[]) => {
-      let workItem = workItems[workItemIndex];
-      this.http.delete(this._route + "/" + workItem.id).subscribe();
+    let workItems = this.workItemsSubject.getValue();
+    let workItem = workItems[workItemIndex];
+    this.http.delete(this._route + "/" + workItem.id).subscribe();
 
-      let newWorkItems = workItems.splice(workItemIndex, 1);
-      this.workItemsSubject.next(newWorkItems);
-    })
+    workItems.splice(workItemIndex, 1);
+    this.workItemsSubject.next(workItems);
   }
 
   public updateWorkItem(workItemIndex: number, workItem: WorkItem) {
     this.http.put<WorkItem>(this._route + "/" + workItem.id, workItem).subscribe();
 
-    this.workItemsSubject.subscribe((workItems: WorkItem[]) => {
-      workItems[workItemIndex] = workItem;
-      this.workItemsSubject.next(workItems);
-    });
+    let workItems = this.workItemsSubject.getValue();
+    workItems[workItemIndex] = workItem;
+    this.workItemsSubject.next(workItems);
   }
 }
