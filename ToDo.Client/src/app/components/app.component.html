@@ -6,7 +6,7 @@
     </div>
     <div id="workitem-list">
       <app-work-item-display
-        *ngFor="let workItem of workItemService.workItems; index as i"
+        *ngFor="let workItem of this.workItems; index as i"
         [workItem]="workItem"
         [workItemIndex]="i"/>
     </div>

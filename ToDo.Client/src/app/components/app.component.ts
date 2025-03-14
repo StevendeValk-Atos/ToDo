@@ -17,7 +17,10 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.workItems = this.workItemService.workItems;
+    this.workItemService.workItemsSubject.subscribe((workItems) => {
+      this.workItems = workItems;
+      console.log(this.workItems);
+    })
   }
 
   getWorkItems() {
