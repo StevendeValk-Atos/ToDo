@@ -15,6 +15,7 @@ export class WorkItemDisplayComponent {
   constructor(private http: HttpClient) { }
 
   @Input() workItem!: WorkItem;
+  @Input() workItemIndex!: number;
 
   deleteWorkItem() {
     this.http.delete("/workitem/" + this.workItem.id).subscribe();
