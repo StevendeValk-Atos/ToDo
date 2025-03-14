@@ -18,11 +18,11 @@ export class WorkItemDisplayComponent {
   @Input() workItemIndex!: number;
 
   deleteWorkItem() {
-    this.http.delete("/workitem/" + this.workItem.id).subscribe();
+    this.workItemService.deleteWorkItem(this.workItemIndex);
   }
 
-  onCheckBoxInput() {
-    this.http.put<WorkItem>("/workitem/" + this.workItem.id, this.workItem)
-    .subscribe();
+  updateWorkItem() {
+    this.workItemService.updateWorkItem(this.workItemIndex, this.workItem);
   }
+
 }

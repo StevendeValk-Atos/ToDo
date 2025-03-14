@@ -3,10 +3,10 @@
     {{ workItem.description }}
     <div class="row">
       <input type="checkbox"
-             [(ngModel)]="workItem.isDone"
-             (ngModelChange)="workItemService.updateWorkItem(workItemIndex, workItem)"
-            />
-      <button (click)="workItemService.deleteWorkItem(workItemIndex)">Delete</button>
+        [(ngModel)]="workItem.isDone"
+        (ngModelChange)="updateWorkItem()"
+        />
+      <button (click)="deleteWorkItem()">Delete</button>
     </div>
   </div>
 </div>
