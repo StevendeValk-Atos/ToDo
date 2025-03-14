@@ -21,6 +21,15 @@ export class WorkItemService {
       (result) => { this.workItemsSubject.next(result); });
   }
 
+  public addWorkItem(description: string) {
+    let workItem: WorkItem = {
+      id: 0,
+      description: description,
+      isDone: false
+    };
+    this.http.post<WorkItem>(this._route, workItem).subscribe();
+  }
+
   public deleteWorkItem(workItemIndex: number) {
     let workItems = this.workItemsSubject.getValue();
     let workItem = workItems[workItemIndex];
