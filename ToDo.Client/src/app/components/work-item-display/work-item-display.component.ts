@@ -1,7 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
-import { WorkItem } from '../../../models/WorkItem';
-import { HttpClient } from "@angular/common/http";
 
+import { WorkItem } from '../../../models/WorkItem';
 import { WorkItemService } from "../../work-item.service";
 
 @Component({
@@ -11,8 +10,6 @@ import { WorkItemService } from "../../work-item.service";
 })
 export class WorkItemDisplayComponent {
   public workItemService: WorkItemService = inject(WorkItemService)
-
-  constructor(private http: HttpClient) { }
 
   @Input() workItem!: WorkItem;
   @Input() workItemIndex!: number;
