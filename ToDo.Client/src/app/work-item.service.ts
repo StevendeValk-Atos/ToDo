@@ -30,7 +30,11 @@ export class WorkItemService {
       description: description,
       isDone: false
     };
-    this.http.post<WorkItem>(this._route, workItem).subscribe();
+
+    let response$ = this.http.post(this._route, workItem);
+    response$.subscribe((response) => {
+      this.getWorkItems();
+    });
   }
 
   public deleteWorkItem(workItemIndex: number) {
