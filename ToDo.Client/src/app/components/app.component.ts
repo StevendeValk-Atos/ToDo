@@ -19,4 +19,9 @@ export class AppComponent implements OnInit {
       this.workItems = workItems;
     })
   }
+
+  public addWorkItem() {
+    this.workItemService.addWorkItem(this.workItemDescription);
+    this.workItemDescription = "";
+  }
 }
