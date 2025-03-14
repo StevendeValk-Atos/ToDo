@@ -10,7 +10,7 @@ import { BehaviorSubject } from "rxjs";
 export class WorkItemService {
   public workItems: WorkItem[] = [];
 
-  private workItemsSubject : BehaviorSubject<WorkItem[]> = new BehaviorSubject<WorkItem[]>([]);
+  public workItemsSubject : BehaviorSubject<WorkItem[]> = new BehaviorSubject<WorkItem[]>([]);
   public workItems$ = this.workItemsSubject.asObservable();
   constructor(private http: HttpClient) {
     this.getWorkItems();
@@ -23,12 +23,22 @@ export class WorkItemService {
       (result) => { this.workItems = result });
   }
 
-  public deleteWorkItem(workItemId: number) {
-    this.http.delete(this._route + "/" + workItemId).subscribe();
-    this.getWorkItems();
+  public deleteWorkItem(workItemIndex: number) {
+    this.workItemsSubject.subscribe((workItems: WorkItem[]) => {
+      let workItem = workItems[workItemIndex];
+      this.http.delete(this._route + "/" + workItem.id).subscribe();
+
+      let newWorkItems = workItems.splice(workItemIndex, 1);
+      this.workItemsSubject.next(newWorkItems);
+    })
   }
 
-  public updateWorkItem(workItem: WorkItem) {
+  public updateWorkItem(workItemIndex: number, workItem: WorkItem) {
     this.http.put<WorkItem>(this._route + "/" + workItem.id, workItem).subscribe();
+
+    this.workItemsSubject.subscribe((workItems: WorkItem[]) => {
+      workItems[workItemIndex] = workItem;
+      this.workItemsSubject.next(workItems);
+    });
   }
 }
