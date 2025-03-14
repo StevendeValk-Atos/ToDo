@@ -18,7 +18,10 @@ export class WorkItemService {
 
   private getWorkItems() {
     this.http.get<WorkItem[]>(this._route).subscribe(
-      (result) => { this.workItemsSubject.next(result); });
+      (result) => {
+        this.workItemsSubject.next(result);
+      }
+    );
   }
 
   public addWorkItem(description: string) {
