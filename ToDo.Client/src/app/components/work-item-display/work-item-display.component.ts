@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 
-import { WorkItem } from '../../../models/WorkItem';
+import { WorkItem } from '../../../models/work-item';
 import { WorkItemService } from "../../work-item.service";
 
 @Component({

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"
 import { HttpClient } from "@angular/common/http"
 
-import { WorkItem } from "../models/WorkItem"
+import { WorkItem } from "../models/work-item"
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
