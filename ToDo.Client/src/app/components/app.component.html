@@ -4,12 +4,6 @@
       <input [(ngModel)]="workItemDescription"/>
       <button id="add-workitem-button" (click)="addWorkItem()">Add</button>
     </div>
-    <div id="workitem-list">
-      <app-work-item-display
-        *ngFor="let workItem of this.workItems; index as i"
-        [workItem]="workItem"
-        [workItemIndex]="i"/>
-    </div>
+    <app-work-item-list />
   </div>
-  <app-work-item-list />
 </div>
