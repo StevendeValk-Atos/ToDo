@@ -10,6 +10,7 @@ import { BehaviorSubject } from "rxjs";
 export class WorkItemService {
   private workItemsSubject : BehaviorSubject<WorkItem[]> = new BehaviorSubject<WorkItem[]>([]);
   public workItems$ = this.workItemsSubject.asObservable();
+  
   constructor(private http: HttpClient) {
     this.getWorkItems();
   }
