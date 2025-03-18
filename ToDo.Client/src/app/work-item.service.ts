@@ -31,6 +31,7 @@ export class WorkItemService {
       isDone: false
     };
 
+    // TODO: Replace http.post request with this.workItems.push statement
     let response$ = this.http.post(this._route, workItem);
     response$.subscribe((response) => {
       this.getWorkItems();
