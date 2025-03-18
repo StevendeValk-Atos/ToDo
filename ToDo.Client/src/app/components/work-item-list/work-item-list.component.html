@@ -1,1 +1,7 @@
-<p>work-item-list component works</p>
+<div>
+  <app-work-item-display
+    *ngFor="let workItem of workItems; index as i"
+    [workItem]="workItem"
+    [workItemIndex]="i"
+  />
+</div>
