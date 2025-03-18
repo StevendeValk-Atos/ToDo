@@ -9,12 +9,14 @@ import { AppComponent } from './components/app.component';
 import { AddWorkItemFormComponent } from './components/add-work-item-form/add-work-item-form.component';
 import { WorkItemDisplayComponent } from './components/work-item-display/work-item-display.component';
 import { WorkItemListComponent } from "./components/work-item-list/work-item-list.component"
+import { HomeComponent } from './components/pages/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
     AddWorkItemFormComponent,
     WorkItemDisplayComponent,
-    WorkItemListComponent
+    WorkItemListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
