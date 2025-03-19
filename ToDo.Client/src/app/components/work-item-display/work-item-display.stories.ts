@@ -1,12 +1,18 @@
-import type { Meta, StoryObj} from "@storybook/angular";
-
+import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
 import { fn } from "@storybook/test";
 
 import { WorkItemDisplayComponent } from "./work-item-display.component";
-
+import { HttpClientModule } from "@angular/common/http"
+import { WorkItemService } from "../../work-item.service";
 const meta: Meta<WorkItemDisplayComponent> = {
     title: "work-item-display",
-    component: WorkItemDisplayComponent
+    component: WorkItemDisplayComponent,
+    decorators: [
+        moduleMetadata({
+            imports: [HttpClientModule],
+
+        })
+    ]
 }
 
 export default meta;
