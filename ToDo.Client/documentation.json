@@ -1072,7 +1072,86 @@
             ]
         }
     ],
-    "miscellaneous": [],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/work-item-display/work-item-display.stoires.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        workItem: {\r\n            id: 1,\r\n            description: \"Prepare presentation\",\r\n            isDone: false\r\n        }\r\n    }\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/work-item-display/work-item-display.stoires.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<WorkItemDisplayComponent>",
+                "defaultValue": "{\r\n    title: \"work-item-display\",\r\n    component: WorkItemDisplayComponent\r\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<WorkItemDisplayComponent>",
+                "file": "src/app/components/work-item-display/work-item-display.stoires.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/components/work-item-display/work-item-display.stoires.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/work-item-display/work-item-display.stoires.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        workItem: {\r\n            id: 1,\r\n            description: \"Prepare presentation\",\r\n            isDone: false\r\n        }\r\n    }\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/work-item-display/work-item-display.stoires.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<WorkItemDisplayComponent>",
+                    "defaultValue": "{\r\n    title: \"work-item-display\",\r\n    component: WorkItemDisplayComponent\r\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "src/app/components/work-item-display/work-item-display.stoires.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<WorkItemDisplayComponent>",
+                    "file": "src/app/components/work-item-display/work-item-display.stoires.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ]
+        }
+    },
     "routes": {
         "name": "<root>",
         "kind": "module",
@@ -1088,7 +1167,7 @@
         ]
     },
     "coverage": {
-        "count": 7,
+        "count": 5,
         "status": "low",
         "files": [
             {
@@ -1125,6 +1204,36 @@
                 "name": "WorkItemDisplayComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/work-item-display/work-item-display.stoires.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/work-item-display/work-item-display.stoires.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/work-item-display/work-item-display.stoires.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
