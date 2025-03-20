@@ -1,13 +1,13 @@
-import { Meta, StoryObj, moduleMetadata, componentWrapperDecorator } from "@storybook/angular";
+import { Meta, StoryObj, moduleMetadata, componentWrapperDecorator } from "@storybook/angular"
 import { HttpClientModule } from "@angular/common/http";
 import { fn } from "@storybook/test";
 
 import { WorkItemService } from "../../work-item.service";
-import { WorkItemDisplayComponent } from "./work-item-display.component";
+import { AddWorkItemFormComponent } from "./add-work-item-form.component";
 
-const meta: Meta<WorkItemDisplayComponent> = {
-    title: "work-item-display",
-    component: WorkItemDisplayComponent,
+const meta: Meta<AddWorkItemFormComponent> = {
+    title: "add-work-item-form",
+    component: AddWorkItemFormComponent,
     decorators: [
         moduleMetadata({
             imports: [HttpClientModule],
@@ -20,15 +20,9 @@ const meta: Meta<WorkItemDisplayComponent> = {
 };
 export default meta;
 
-type Story = StoryObj<WorkItemDisplayComponent>;
+type Story = StoryObj<AddWorkItemFormComponent>;
 export const Default: Story = {
-  args: {
-    deleteWorkItem: fn(),
-    updateWorkItem: fn(),
-    workItem: {
-        id: 1,
-        description: "Prepare presentation",
-        isDone: false
+    args: {
+        addWorkItem: fn()
     }
-}
 }
