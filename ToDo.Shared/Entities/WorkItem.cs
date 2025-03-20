@@ -11,5 +11,9 @@ namespace ToDo.Shared.Entities
     {
         public string Description { get; set; }
         public bool IsDone { get; set; } = false;
+        public string CreatedBy { get; set; }
+        public DateTime CreatedAt {  get; set; }
+        public string ModifiedBy { get; set; }
+        public DateTime ModifiedAt { get; set; }
     }
 }
