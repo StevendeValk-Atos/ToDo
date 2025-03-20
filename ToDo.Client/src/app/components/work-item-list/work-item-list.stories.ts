@@ -1,5 +1,10 @@
 import { HttpClientModule } from "@angular/common/http";
-import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
+import {
+    Meta,
+    StoryObj,
+    moduleMetadata,
+    componentWrapperDecorator 
+} from "@storybook/angular";
 import { fn } from "@storybook/test";
 
 import { WorkItemService } from "../../work-item.service";
@@ -14,6 +19,9 @@ const meta : Meta<WorkItemListComponent> = {
             imports: [HttpClientModule],
             providers: [WorkItemService],
             declarations: [ WorkItemDisplayComponent]
+        }),
+        componentWrapperDecorator((story) => {
+            return `<div style="background-color: lightgray; padding: 1em; font-size: 1.5em;">${story}</div>`
         })
     ]
 };
