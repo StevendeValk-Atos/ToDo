@@ -8,6 +8,17 @@ namespace ToDo.Shared.DataTransfer
 {
     public class WorkItem
     {
+        public WorkItem(Shared.Entities.WorkItem workItem)
+        {
+            Id = workItem.Id;
+            Description = workItem.Description;
+            IsDone = workItem.IsDone;
+            
+            if (workItem.CreatedBy == "Steven") { 
+                IsMine = true;
+            }
+        }
+
         public int Id { get; set; }
         public string Description { get; set; }
         public bool IsDone { get; set; }
