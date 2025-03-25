@@ -6,7 +6,7 @@
         [(ngModel)]="workItem.isDone"
         (ngModelChange)="updateWorkItem()"
         />
-      <button (click)="deleteWorkItem()">Delete</button>
+      <button *ngIf="workItem.isMine" (click)="deleteWorkItem()">Delete</button>
     </div>
   </div>
 </div>
