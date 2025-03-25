@@ -24,6 +24,8 @@ namespace ToDo.Service
 
         public async Task InsertAsync(WorkItem workItem)
         {
+            workItem.CreatedAt = DateTime.UtcNow;
+            workItem.ModifiedAt = DateTime.UtcNow;
             await _repository.InsertAsync(workItem);
         }
 
