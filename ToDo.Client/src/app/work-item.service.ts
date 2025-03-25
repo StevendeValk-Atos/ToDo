@@ -29,7 +29,8 @@ export class WorkItemService {
     let workItem: WorkItem = {
       id: 0,
       description: description,
-      isDone: false
+      isDone: false,
+      isMine: true
     };
 
     // TODO: Replace http.post request with this.workItems.push statement
