@@ -28,7 +28,8 @@ export const Default: Story = {
     workItem: {
         id: 1,
         description: "Prepare presentation",
-        isDone: false
+        isDone: false,
+        isMine: true
     }
 }
 }
