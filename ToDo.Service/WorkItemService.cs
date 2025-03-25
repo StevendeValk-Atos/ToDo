@@ -40,6 +40,7 @@ namespace ToDo.Service
 
         public void Update(WorkItem workItem)
         {
+            workItem.ModifiedAt = DateTime.UtcNow;
             _repository.Update(workItem);
         }
 
