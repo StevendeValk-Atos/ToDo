@@ -10,6 +10,7 @@ namespace ToDo.Shared.DataTransfer
     {
         public WorkItem(Shared.Entities.WorkItem workItem)
         {
+            // TODO: Add AutoMapper for this
             Id = workItem.Id;
             Description = workItem.Description;
             IsDone = workItem.IsDone;
