@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using ToDo.Service;
 using ToDo.Shared.Entities;
@@ -16,9 +17,12 @@ namespace ToDo.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<WorkItem>> GetAll()
+        public async Task<IEnumerable<Shared.DataTransfer.WorkItem>> GetAll()
         {
-            return await WorkItemService.GetAllAsync();
+            var workItems = await WorkItemService.GetAllAsync();
+            var dataTransferItems = workItems.Select(wi => new Shared.DataTransfer.WorkItem(wi));
+
+            return dataTransferItems;
         }
 
         [HttpPost]
