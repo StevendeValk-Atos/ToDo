@@ -11,7 +11,7 @@ namespace ToDo.Server
                 .ForMember(
                 dest => dest.IsMine,
                 opt => opt.MapFrom(src => src.CreatedBy == "Steven"));
-            CreateMap<Shared.Entities.WorkItem, WorkItem>().ReverseMap();
+            CreateMap<Shared.Entities.WorkItem, Shared.DataTransfer.WorkItem>().ReverseMap();
         }
     }
 }
