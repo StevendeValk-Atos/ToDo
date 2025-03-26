@@ -35,9 +35,10 @@ namespace ToDo.Server.Controllers
         }
 
         [HttpPost]
-        public async Task InsertAsync([FromBody] WorkItem workItem)
+        public async Task InsertAsync([FromBody] Shared.DataTransfer.WorkItem workItem)
         {
-            await WorkItemService.InsertAsync(workItem);
+            var mappedWorkItem = Mapper.Map<Shared.Entities.WorkItem>(workItem);
+            await WorkItemService.InsertAsync(mappedWorkItem);
         }
 
         [HttpDelete("{id}")]
