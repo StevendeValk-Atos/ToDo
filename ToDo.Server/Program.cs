@@ -1,4 +1,5 @@
 
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ToDo.DataAccess;
 using ToDo.Service;
@@ -12,6 +13,16 @@ namespace ToDo.Server
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Auto Mapper Configuration
+            var mapperConfig = new MapperConfiguration(config =>
+            {
+                config.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            builder.Services.AddSingleton(mapper);
+
 
             // Add services to the container.
             builder.Services.AddDbContext<ToDoContext>(options =>
@@ -27,7 +38,6 @@ namespace ToDo.Server
             builder.Services.AddScoped<DbFactory>();
             builder.Services.AddScoped<IRepository<WorkItem>, Repository<WorkItem>>();
             builder.Services.AddScoped<WorkItemService>();
-
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
