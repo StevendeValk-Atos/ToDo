@@ -48,7 +48,7 @@ namespace ToDo.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public void UpdateAsync(int id, [FromBody] WorkItem workItem)
+        public void UpdateAsync(int id, [FromBody] Shared.DataTransfer.WorkItem workItem)
         {
             var mappedWorkItem = Mapper.Map<Shared.Entities.WorkItem>(workItem);
             WorkItemService.Update(mappedWorkItem);
