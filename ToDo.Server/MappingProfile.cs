@@ -10,7 +10,7 @@ namespace ToDo.Server
             CreateMap<Shared.Entities.WorkItem, Shared.DataTransfer.WorkItem>()
                 .ForMember(
                 dest => dest.IsMine,
-                opt => opt.MapFrom(src => src.CreatedBy == "Steven" ? true : false));
+                opt => opt.MapFrom(src => src.CreatedBy == "Steven"));
             CreateMap<Shared.Entities.WorkItem, WorkItem>().ReverseMap();
         }
     }
