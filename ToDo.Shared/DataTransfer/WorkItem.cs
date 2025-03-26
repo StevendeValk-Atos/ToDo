@@ -8,17 +8,7 @@ namespace ToDo.Shared.DataTransfer
 {
     public class WorkItem
     {
-        public WorkItem(Shared.Entities.WorkItem workItem)
-        {
-            // TODO: Add AutoMapper for this
-            Id = workItem.Id;
-            Description = workItem.Description;
-            IsDone = workItem.IsDone;
-            
-            if (workItem.CreatedBy == "Steven") { 
-                IsMine = true;
-            }
-        }
+        public WorkItem() { }
 
         public int Id { get; set; }
         public string Description { get; set; }
