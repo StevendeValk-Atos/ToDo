@@ -1,6 +1,7 @@
 
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 using ToDo.DataAccess;
 using ToDo.Service;
 using ToDo.Shared.Entities;
@@ -10,63 +11,74 @@ namespace ToDo.Server
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            var host = CreateHostBuilder(args).Build();
+            await host.RunAsync();
+            //var builder = WebApplication.CreateBuilder(args);
 
-            // Auto Mapper Configuration
-            var mapperConfig = new MapperConfiguration(config =>
-            {
-                config.AddProfile(new MappingProfile());
-            });
+            //// Auto Mapper Configuration
+            //var mapperConfig = new MapperConfiguration(config =>
+            //{
+            //    config.AddProfile(new MappingProfile());
+            //});
 
-            IMapper mapper = mapperConfig.CreateMapper();
-            builder.Services.AddSingleton(mapper);
-
-
-            // Add services to the container.
-            builder.Services.AddDbContext<ToDoContext>(options =>
-            {
-                string connString = builder.Configuration.GetConnectionString("default")!;
-                options.UseSqlServer(
-                    connString,
-                    b => b.MigrationsAssembly("ToDo.DataAccess")
-                );
-            });
-
-            builder.Services.AddScoped<Func<ToDoContext>>((provider) => () => provider.GetService<ToDoContext>());
-            builder.Services.AddScoped<DbFactory>();
-            builder.Services.AddScoped<IRepository<WorkItem>, Repository<WorkItem>>();
-            builder.Services.AddScoped<WorkItemService>();
-
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            //IMapper mapper = mapperConfig.CreateMapper();
+            //builder.Services.AddSingleton(mapper);
 
 
-            var app = builder.Build();
+            //// Add services to the container.
+            //builder.Services.AddDbContext<ToDoContext>(options =>
+            //{
+            //    string connString = builder.Configuration.GetConnectionString("default")!;
+            //    options.UseSqlServer(
+            //        connString,
+            //        b => b.MigrationsAssembly("ToDo.DataAccess")
+            //    );
+            //});
 
-            SeedDb(app);
+            //builder.Services.AddScoped<Func<ToDoContext>>((provider) => () => provider.GetService<ToDoContext>());
+            //builder.Services.AddScoped<DbFactory>();
+            //builder.Services.AddScoped<IRepository<WorkItem>, Repository<WorkItem>>();
+            //builder.Services.AddScoped<WorkItemService>();
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
-            app.UseAuthorization();
+            //builder.Services.AddControllers();
+            //// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            //builder.Services.AddEndpointsApiExplorer();
+            //builder.Services.AddSwaggerGen();
 
 
-            app.MapControllers();
+            //var app = builder.Build();
 
-            app.MapFallbackToFile("/index.html");
+            //SeedDb(app);
 
-            app.Run();
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+
+            //// Configure the HTTP request pipeline.
+            //if (app.Environment.IsDevelopment())
+            //{
+            //    app.UseSwagger();
+            //    app.UseSwaggerUI();
+            //}
+
+            //app.UseAuthorization();
+
+
+            //app.MapControllers();
+
+            //app.MapFallbackToFile("/index.html");
+
+            //app.Run();
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder()
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>().UseWebRoot("wwwroot");
+                });
         }
 
         private async static void SeedDb(WebApplication app)
