@@ -59,12 +59,16 @@ namespace ToDo.DataAccess
 
         public T Find(params object[] keyValues)
         {
-            return _dbSet.Find(keyValues);
+            var entity = _dbSet.Find(keyValues);
+            _dbSet.Entry(entity).State = EntityState.Detached;
+            return entity;
         }
 
         public virtual async Task<T> FindAsync(params object[] keyValues)
         {
-            return await _dbSet.FindAsync(keyValues);
+            var entity = await _dbSet.FindAsync(keyValues);
+            _dbSet.Entry(entity).State = EntityState.Detached;
+            return entity;
         }
 
         public async Task InsertAsync(T entity, bool saveChanges = true)
