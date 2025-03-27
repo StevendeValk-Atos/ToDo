@@ -21,7 +21,7 @@ namespace ToDo.Server
             // AutoMapper Configuration
             var mapperConfig = new MapperConfiguration(config =>
             {
-                config.AddProfile(new MappingProfile())
+                config.AddProfile(new MappingProfile());
             });
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton<IMapper>(mapper);
@@ -52,6 +52,19 @@ namespace ToDo.Server
 
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) { }
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
+            // Configure the HTTP request pipeline.
+            if (env.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
+
+            app.UseAuthorization();
+        }
     }
 }
