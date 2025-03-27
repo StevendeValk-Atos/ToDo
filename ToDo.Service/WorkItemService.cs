@@ -17,11 +17,6 @@ namespace ToDo.Service
             _repository = repository;
         }
 
-        public async Task<WorkItem> FindAsync(int id)
-        {
-            return await _repository.FindAsync(id);
-        }
-
         public async Task<IList<WorkItem>> GetAllAsync()
         {
             return await _repository.GetAllAsync();
@@ -51,7 +46,7 @@ namespace ToDo.Service
             workItem.ModifiedAt = DateTime.UtcNow;
             workItem.ModifiedBy = "Steven";
 
-            var oldWorkItem = FindAsync(workItem.Id).GetAwaiter().GetResult();
+            var oldWorkItem = _repository.Find(workItem.Id);
             workItem.CreatedBy = oldWorkItem.CreatedBy;
 
             _repository.Update(workItem);
