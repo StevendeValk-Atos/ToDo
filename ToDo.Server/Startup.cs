@@ -49,7 +49,7 @@ namespace ToDo.Server
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-
+            services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
