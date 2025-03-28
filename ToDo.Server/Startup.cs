@@ -4,6 +4,7 @@ using ToDo.DataAccess;
 using ToDo.Service;
 using ToDo.Shared.Interfaces;
 using ToDo.DataAccess.Extensions;
+using ToDo.Server.Extensions;
 
 namespace ToDo.Server
 {
@@ -18,13 +19,7 @@ namespace ToDo.Server
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // AutoMapper Configuration
-            var mapperConfig = new MapperConfiguration(config =>
-            {
-                config.AddProfile(new MappingProfile());
-            });
-            IMapper mapper = mapperConfig.CreateMapper();
-            services.AddSingleton<IMapper>(mapper);
+            services.AddMappers();
 
             string connectionString = Configuration.GetConnectionString("default")!;
             services.AddDatabase(connectionString);
