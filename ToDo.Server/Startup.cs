@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ToDo.DataAccess;
 using ToDo.Service;
 using ToDo.Shared.Interfaces;
+using ToDo.DataAccess.Extensions;
 
 namespace ToDo.Server
 {
@@ -25,21 +26,9 @@ namespace ToDo.Server
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton<IMapper>(mapper);
 
-            services.AddDbContext<ToDoContext>(options =>
-            {
-                string connString = Configuration.GetConnectionString("default")!;
-                options.UseSqlServer(
-                    connString,
-                    sqlOptions =>
-                    {
-                        sqlOptions.MigrationsAssembly("ToDo.DataAccess");
-                    }
-                );
-            });
+            string connectionString = Configuration.GetConnectionString("default")!;
+            services.AddDatabase(connectionString);
 
-            services.AddScoped<Func<ToDoContext>>(
-                (provider) => () => provider.GetService<ToDoContext>()!
-            );
             services.AddScoped<DbFactory>();
             services.AddScoped<IRepository<Shared.Entities.WorkItem>, Repository<Shared.Entities.WorkItem>>();
             services.AddScoped<WorkItemService>();
