@@ -5,12 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using ToDo.Shared.Interfaces;
 using ToDo.Shared.Entities;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ToDo.DataAccess.Seeders
 {
     public static class ToDoContextSeeder
     {
         public static void Seed(ToDoContext context)
+        {
+            if (context.WorkItems.IsNullOrEmpty())
+            {
+                SeedWorkItems(context);
+            }
+        }
+
+        private static void SeedWorkItems(ToDoContext context)
         {
             context.WorkItems.AddRange(new WorkItem[] {
                 new WorkItem
