@@ -13,8 +13,11 @@ namespace ToDo.DataAccess.Extensions
     {
         public static IApplicationBuilder SeedDatabase(this IApplicationBuilder builder)
         {
-            ToDoContext toDoContext = builder.ApplicationServices.GetRequiredService<ToDoContext>();
-            ToDoContextSeeder.Seed(toDoContext);
+            using (var scope = builder.ApplicationServices.CreateScope())
+            {
+                var toDoContext = scope.ServiceProvider.GetRequiredService<ToDoContext>();
+                ToDoContextSeeder.Seed(toDoContext);
+            }
             
             return builder;
         }
