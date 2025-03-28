@@ -13,10 +13,10 @@ namespace ToDo.DataAccess.Seeders
     {
         public static void Seed(ToDoContext context)
         {
-            if (context.WorkItems.IsNullOrEmpty())
-            {
+            if (context.WorkItems.Any())
                 SeedWorkItems(context);
-            }
+
+            context.SaveChanges();
         }
 
         private static void SeedWorkItems(ToDoContext context)
