@@ -44,6 +44,7 @@ namespace ToDo.Server
             // Configure the HTTP request pipeline.
             if (env.IsDevelopment())
             {
+                app.SeedDatabase();
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
