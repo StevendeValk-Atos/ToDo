@@ -13,9 +13,7 @@ namespace ToDo.Server
                     dest => dest.IsMine,
                     opt => opt.MapFrom(src => src.CreatedBy == "Steven")
                 );
-            CreateMap<Shared.DataTransfer.WorkItem, Shared.Entities.WorkItem>()
-                .ForMember( dest => dest.CreatedBy, opt => opt.MapFrom(src => ""))
-                .ForMember( dest => dest.ModifiedBy, opt => opt.MapFrom(src => ""));
+            CreateMap<Shared.DataTransfer.WorkItem, Shared.Entities.WorkItem>();
         }
     }
 }
