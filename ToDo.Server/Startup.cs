@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ToDo.DataAccess;
-using ToDo.Shared.Interfaces;
-using ToDo.Shared;
 using ToDo.Service;
+using ToDo.Shared.Interfaces;
 
 namespace ToDo.Server
 {
@@ -31,7 +30,8 @@ namespace ToDo.Server
                 string connString = Configuration.GetConnectionString("default")!;
                 options.UseSqlServer(
                     connString,
-                    sqlOptions => {
+                    sqlOptions =>
+                    {
                         sqlOptions.MigrationsAssembly("ToDo.DataAccess");
                     }
                 );
