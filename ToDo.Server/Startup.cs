@@ -29,11 +29,10 @@ namespace ToDo.Server
             services.AddScoped<WorkItemService>();
 
             services.AddControllers();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-
-            services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -48,7 +47,9 @@ namespace ToDo.Server
                 app.UseSwaggerUI();
             }
 
+            app.UseRouting();
             app.UseAuthorization();
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
