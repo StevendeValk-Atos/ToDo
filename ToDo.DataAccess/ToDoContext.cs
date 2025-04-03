@@ -9,10 +9,6 @@ namespace ToDo.DataAccess
         public ToDoContext(DbContextOptions<ToDoContext> options) : base(options) { }
         public virtual DbSet<WorkItem> WorkItems { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer("server=(localdb)\\mssqllocaldb;Database=ToDoContext;Trusted_Connection=True");
-        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
     }
 }
